@@ -561,10 +561,15 @@ const business_name = document.querySelector("#business_name");
 const phn_num = document.querySelector("#phn_num");
 const service = document.querySelector("#service");
 const nxt_btn = document.querySelector("#nxt_btn");
-const right_arrow = document.querySelector("#service");
+const right_arrow = document.querySelector(".right_arrow-vf");
+const yoe = document.querySelector("#exp");
+const city = document.querySelector("#city");
 const business_name_err = document.querySelector("#business_name_err");
 const phn_err = document.querySelector("#phn_err");
 const service_err = document.querySelector("#service_err");
+const exp_err = document.querySelector("#exp_err");
+const city_err = document.querySelector("#city_err");
+const form_submit_btn = document.querySelector("#sub_btn");
 const remove_err = function(field, err) {
     field.addEventListener("input", ()=>{
         err.style.display = "none";
@@ -573,6 +578,8 @@ const remove_err = function(field, err) {
 remove_err(business_name, business_name_err);
 remove_err(phn_num, phn_err);
 remove_err(service, service_err);
+remove_err(yoe, exp_err);
+remove_err(city, city_err);
 nxt_btn.addEventListener("click", (e)=>{
     const alphabets = /^[a-zA-Z]+$/;
     if (!business_name.value) business_name_err.style.display = "flex";
@@ -582,6 +589,15 @@ nxt_btn.addEventListener("click", (e)=>{
         phn_err.textContent = `Please enter a valid number`;
     } else if (!service.value) service_err.style.display = "flex";
     else right_arrow.click();
+});
+form_submit_btn.addEventListener("click", (e)=>{
+    if (!yoe.value) {
+        e.preventDefault();
+        exp_err.style.display = "flex";
+    } else if (!city.value) {
+        e.preventDefault();
+        city_err.style.display = "flex";
+    }
 });
 
 },{}]},["dpgAG","6rimH"], "6rimH", "parcelRequire0eee")
