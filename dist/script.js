@@ -570,6 +570,7 @@ const service_err = document.querySelector("#service_err");
 const exp_err = document.querySelector("#exp_err");
 const city_err = document.querySelector("#city_err");
 const form_submit_btn = document.querySelector("#sub_btn");
+const step_indicator = document.querySelector(".step_indicator");
 const remove_err = function(field, err) {
     field.addEventListener("input", ()=>{
         err.style.display = "none";
@@ -588,7 +589,11 @@ nxt_btn.addEventListener("click", (e)=>{
         phn_err.style.display = "flex";
         phn_err.textContent = `Please enter a valid number`;
     } else if (!service.value) service_err.style.display = "flex";
-    else right_arrow.click();
+    else {
+        right_arrow.click();
+        step_indicator.style.width = "100%";
+    //console.log('Here')
+    }
 });
 form_submit_btn.addEventListener("click", (e)=>{
     if (!yoe.value) {
@@ -599,6 +604,48 @@ form_submit_btn.addEventListener("click", (e)=>{
         city_err.style.display = "flex";
     }
 });
+//////////////////////////SLIDER CODE///////////////////////////////
+function vendor_onboarding() {
+    let splides = $(".vendor_onboarding");
+    for(let i = 0, splideLength = splides.length; i < splideLength; i++)new Splide(splides[i], {
+        // Desktop on down
+        perPage: 1,
+        perMove: 1,
+        focus: 0,
+        type: "loop",
+        gap: "2em",
+        arrows: false,
+        pagination: "slider",
+        speed: 600,
+        dragAngleThreshold: 30,
+        autoWidth: false,
+        rewind: true,
+        rewindSpeed: 400,
+        waitForTransition: false,
+        updateOnMove: true,
+        trimSpace: false,
+        autoplay: true,
+        interval: 4000,
+        breakpoints: {
+            991: {
+                // Tablet
+                perPage: 1,
+                gap: "1em"
+            },
+            767: {
+                // Mobile Landscape
+                perPage: 1,
+                gap: "1em"
+            },
+            479: {
+                // Mobile Portrait
+                perPage: 1,
+                gap: "1em"
+            }
+        }
+    }).mount();
+}
+vendor_onboarding();
 
 },{}]},["dpgAG","6rimH"], "6rimH", "parcelRequire0eee")
 

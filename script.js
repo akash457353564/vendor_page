@@ -17,6 +17,8 @@ const city_err = document.querySelector('#city_err')
 
 const form_submit_btn = document.querySelector('#sub_btn')
 
+const step_indicator = document.querySelector('.step_indicator')
+
 const remove_err = function(field, err){
     field.addEventListener('input', ()=>{
         err.style.display = 'none'
@@ -42,6 +44,7 @@ nxt_btn.addEventListener('click', (e)=>{
         service_err.style.display = 'flex'
     } else {
         right_arrow.click()
+        step_indicator.style.width = '100%'
         //console.log('Here')
     }
 })
@@ -56,3 +59,53 @@ form_submit_btn.addEventListener('click', (e)=>{
         city_err.style.display = 'flex'
     } 
 })
+
+
+//////////////////////////SLIDER CODE///////////////////////////////
+
+function vendor_onboarding() {
+
+    let splides = $('.vendor_onboarding');
+    for (let i = 0, splideLength = splides.length; i < splideLength; i++) {
+        new Splide(splides[i], {
+            // Desktop on down
+            perPage: 1,
+            perMove: 1,
+            focus: 0, // 0 = left and 'center' = center
+            type: 'loop', // 'loop' or 'slide'
+            gap: '2em', // space between slides
+            arrows: false, // 'slider' or false
+            pagination: 'slider', // 'slider' or false
+            speed: 600, // transition speed in miliseconds
+            dragAngleThreshold: 30, // default is 30
+            autoWidth: false, // for cards with differing widths
+            rewind: true, // go back to beginning when reach end
+            rewindSpeed: 400,
+            waitForTransition: false,
+            updateOnMove: true,
+            trimSpace: false, // true removes empty space from end of list
+            autoplay: true,
+            interval: 4000,
+            breakpoints: {
+                991: {
+                    // Tablet
+                    perPage: 1,
+                    gap: '1em',
+                },
+                767: {
+                    // Mobile Landscape
+                    perPage: 1,
+                    gap: '1em',
+                },
+                479: {
+                    // Mobile Portrait
+                    perPage: 1,
+                    gap: '1em',
+                }
+            }
+        }).mount();
+    }
+
+}
+vendor_onboarding();
+
