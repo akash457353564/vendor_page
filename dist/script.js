@@ -604,6 +604,7 @@ form_submit_btn.addEventListener("click", (e)=>{
         city_err.style.display = "flex";
     }
 });
+document.querySelector("#source").value = document.URL;
 //////////////////////////SLIDER CODE///////////////////////////////
 function vendor_onboarding() {
     let splides = $(".vendor_onboarding");
@@ -647,6 +648,6 @@ function vendor_onboarding() {
 }
 vendor_onboarding();
 
-},{}]},["dpgAG","6rimH"], "6rimH", "parcelRequire0eee")
+},{}]},["dpgAG","6rimH"], "6rimH", "parcelRequire1844")
 
 //# sourceMappingURL=script.js.map

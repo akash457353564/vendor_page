@@ -60,6 +60,7 @@ form_submit_btn.addEventListener('click', (e)=>{
     } 
 })
 
+document.querySelector('#source').value = document.URL
 
 //////////////////////////SLIDER CODE///////////////////////////////
 
